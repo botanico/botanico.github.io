@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cafe Botanico</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --color-primary: #53B65D;
+      --color-primary-light: #A9DAAE;
+      --color-gray-dark: #333333;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+  <!-- Header -->
+  <header class="fixed w-full bg-white shadow-sm z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between p-4">
+      <!-- Logo -->
+      <img src="logo.png" alt="Cafe Botanico" class="h-12">
+
+      <!-- Burger -->
+      <button id="burger" class="space-y-1 focus:outline-none">
+        <span class="block w-6 h-0.5 bg-[var(--color-primary)] transition-transform"></span>
+        <span class="block w-6 h-0.5 bg-[var(--color-primary)] transition-opacity"></span>
+        <span class="block w-6 h-0.5 bg-[var(--color-primary)] transition-transform"></span>
+      </button>
+    </div>
+    <!-- Mobile nav -->
+    <nav id="mobileNav" class="fixed top-0 right-0 h-full w-2/3 bg-white shadow-lg transform translate-x-full transition-transform">
+      <ul class="flex flex-col p-6 space-y-4 uppercase text-lg">
+        <li><a href="#hero" class="hover:text-[var(--color-primary)]">Home</a></li>
+        <li><a href="#menu" class="hover:text-[var(--color-primary)]">Menu</a></li>
+        <li><a href="#about" class="hover:text-[var(--color-primary)]">About</a></li>
+        <li><a href="#chef" class="hover:text-[var(--color-primary)]">Chef</a></li>
+        <li><a href="#contacts" class="hover:text-[var(--color-primary)]">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="pt-16 h-screen flex items-center justify-center bg-gray-100">
+    <div class="text-center px-4">
+      <h1 class="text-5xl font-serif text-[var(--color-primary)] mb-4">Welcome to Cafe Botanico</h1>
+      <p class="text-lg text-[var(--color-gray-dark)]">A premium dining experience in the heart of the city.</p>
+    </div>
+  </section>
+
+  <!-- Placeholder for other sections -->
+  <section id="menu" class="max-w-5xl mx-auto py-20 px-4">
+    <h2 class="text-3xl font-serif text-[var(--color-primary)] mb-6">Our Menu</h2>
+    <!-- ... -->
+  </section>
+
+  <section id="about" class="bg-gray-50 py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-serif text-[var(--color-primary)] mb-4">About Us</h2>
+      <p class="text-lg text-[var(--color-gray-dark)]">We craft unforgettable experiences by combining premium ingredients with exceptional service.</p>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts" class="max-w-5xl mx-auto py-20 px-4">
+    <h2 class="text-3xl font-serif text-[var(--color-primary)] mb-6">Contact Us</h2>
+    <p class="text-[var(--color-gray-dark)]">Email: info@cafe-botanico.ge | Phone: +995 123 4567</p>
+  </section>
+
+  <footer class="bg-white py-6 text-center text-sm text-[var(--color-gray-dark)]">
+    &copy; 2025 Cafe Botanico. All rights reserved.
+  </footer>
+
+  <!-- Simple JS for burger toggle -->
+  <script>
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobileNav');
+    let open = false;
+
+    burger.addEventListener('click', () => {
+      open = !open;
+      mobileNav.classList.toggle('translate-x-full', !open);
+      mobileNav.classList.toggle('translate-x-0', open);
+
+      // animate burger to X
+      burger.children[0].classList.toggle('rotate-45', open);
+      burger.children[0].classList.toggle('translate-y-1', open);
+      burger.children[1].classList.toggle('opacity-0', open);
+      burger.children[2].classList.toggle('-rotate-45', open);
+      burger.children[2].classList.toggle('-translate-y-1', open);
+    });
+  </script>
+
+</body>
+</html>
